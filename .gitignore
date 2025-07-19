@@ -1,0 +1,6 @@
+__pycache__/
+.venv/
+chromedriver-win64/
+*.gz
+.env
+*.ipynb
