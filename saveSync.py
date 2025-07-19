@@ -137,8 +137,7 @@ if __name__ == "__main__":
     if args.command == "web" and not args.save_file:
         parser.error("--save-file is required when using 'web'")
 
-    # Note: The required=True in web_parser should handle this, but keeping for clarity
-
+    # Uncomment these lines if you wnat to use SFTP
     # SFTP_CONFIG = {
     #     "hostname": "url-to-server.com",  # SFTP server hostname or IP
     #     "username": "username",  # SSH username
@@ -147,8 +146,9 @@ if __name__ == "__main__":
     #     "port": 22,  # SSH port (default is 22)
     #     "remote_path": "/bitburner_saves",  # remote directory for saves
     # }
-    # sftp_model = SFTPCloudModel(**SFTP_CONFIG)
+    # model = SFTPCloudModel(**SFTP_CONFIG)
 
-    local_model = LocalSaveServer(os.path.join(os.getcwd(), "savegames"))
+    # and comment this in, so this one is deactivated
+    model = LocalSaveServer(os.path.join(os.getcwd(), "savegames"))
 
-    main(args, local_model)
+    main(args, model)
